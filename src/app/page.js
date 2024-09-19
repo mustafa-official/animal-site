@@ -1,7 +1,12 @@
+import Animal from "@/components/Animal";
+import NavBar from "@/components/NavBar";
 
 
 export default function Home() {
   return (
-    <h2>Animal site</h2>
+    <div className="bg-black">
+      <NavBar />
+      <Animal />
+    </div>
   );
 }
