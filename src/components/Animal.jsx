@@ -1,11 +1,12 @@
 "use client";
+import { useCategory } from "@/context/CategoryContext";
 import axiosPublic from "@/utils/axiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Image from "next/image";
 
 const Animal = () => {
-  // const [animals, setAnimals] = useState([]);
+  const { selectedCategory } = useCategory();
   const { data: animals = [], isLoading } = useQuery({
     queryKey: ["animals"],
     queryFn: async () => {
@@ -14,7 +15,9 @@ const Animal = () => {
     },
   });
 
-  if(isLoading) return <h2 className="text-white text-xl">Loading...</h2>
+  console.log(selectedCategory);
+
+  if (isLoading) return <h2 className="text-white text-xl">Loading...</h2>;
   return (
     <div className="grid grid-cols-6 gap-5 bg-black py-10">
       {animals.map((animal, index) => (

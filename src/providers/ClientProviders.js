@@ -1,5 +1,6 @@
-"use client"; // This marks this file as a Client Component
+"use client";
 
+import { CategoryProvider } from "@/context/CategoryContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -8,7 +9,9 @@ export default function ClientProviders({ children }) {
 
     return (
         <QueryClientProvider client={queryClient}>
-            {children}
+            <CategoryProvider>
+                {children}
+            </CategoryProvider>
         </QueryClientProvider>
     );
 }
