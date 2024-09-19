@@ -2,15 +2,16 @@
 import { useCategory } from "@/context/CategoryContext";
 import axiosPublic from "@/utils/axiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import Image from "next/image";
 
 const Animal = () => {
   const { selectedCategory } = useCategory();
   const { data: animals = [], isLoading } = useQuery({
-    queryKey: ["animals"],
+    queryKey: ["animals", selectedCategory],
     queryFn: async () => {
-      const { data } = await axiosPublic.get("/animals");
+      const { data } = await axiosPublic.get(
+        `/animals?category=${selectedCategory}`
+      );
       return data;
     },
   });
