@@ -25,8 +25,8 @@ const Animal = () => {
   return (
     <div className="grid grid-cols-1 items-center sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-7 sm:gap-8 lg:gap-10 pt-10 sm:pt-12 md:pt-16">
       {animals.map((animal, index) => (
-        <div key={index} className="flex justify-center items-center flex-col">
-          <div class="w-full max-w-xs py-4 h-48 flex justify-center items-center overflow-hidden bg-[#050505] border border-[#141414] rounded-lg shadow-lg">
+        <div key={index} className="flex justify-center items-center flex-col hover:-translate-y-1 transform transition duration-200 group">
+          <div class="w-full max-w-xs py-4 h-48 flex justify-center items-center overflow-hidden bg-[#050505] border border-[#141414] group-hover:border-[#aaaaaa9a] rounded-lg shadow-lg">
             <Image
               width={150}
               height={150}
