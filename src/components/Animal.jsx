@@ -16,26 +16,27 @@ const Animal = () => {
     },
   });
 
-  console.log(selectedCategory);
-
-  if (isLoading) return <h2 className="text-white text-xl">Loading...</h2>;
+  if (isLoading)
+    return (
+      <div className="min-h-[50vh] flex justify-center items-center">
+        <span className="loading loading-spinner loading-md text-white"></span>
+      </div>
+    );
   return (
-    <div className="grid grid-cols-6 gap-5 bg-black py-10">
+    <div className="grid grid-cols-1 items-center sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-7 sm:gap-8 lg:gap-10 pt-10 sm:pt-12 md:pt-16">
       {animals.map((animal, index) => (
-        <div
-          key={index}
-          class="w-full max-w-xs overflow-hidden bg-neutral-800 border rounded-lg shadow-lg"
-        >
-          <Image
-            width={150}
-            height={150}
-            className="object-cover w-full h-56 p-5"
-            src={animal.image}
-            alt="avatar"
-          />
-
-          <div className="py-5 text-center">
-            <h2 className="block text-xl font-bold text-white">
+        <div key={index} className="flex justify-center items-center flex-col">
+          <div class="w-full max-w-xs py-4 h-48 flex justify-center items-center overflow-hidden bg-[#050505] border border-[#141414] rounded-lg shadow-lg">
+            <Image
+              width={150}
+              height={150}
+              className="object-cover w-40 p-5"
+              src={animal.image}
+              alt="avatar"
+            />
+          </div>
+          <div className="text-center mt-2">
+            <h2 className="block text-[18px] uppercase text-[#FFFFFFCC]">
               {animal.name}
             </h2>
           </div>
